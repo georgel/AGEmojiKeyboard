@@ -119,7 +119,10 @@ NSString *const RecentUsedEmojiCharactersKey = @"RecentUsedEmojiCharactersKey";
     self.segmentsBar = [[UISegmentedControl alloc] initWithItems:self.imagesForSelectedSegments];
     self.segmentsBar.frame = CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.segmentsBar.bounds));
     self.segmentsBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-
+//    self.segmentsBar.tintColor = [UIColor colorWithRed:0.667 green:0.667 blue:0.667 alpha:1.0];
+      self.segmentsBar.backgroundColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.0];
+      self.segmentsBar.tintColor = [UIColor grayColor];
+      
     [self.segmentsBar addTarget:self action:@selector(categoryChangedViaSegmentsBar:) forControlEvents:UIControlEventValueChanged];
     [self setSelectedCategoryImageInSegmentControl:self.segmentsBar AtIndex:self.defaultSelectedCategory];
     self.segmentsBar.selectedSegmentIndex = self.defaultSelectedCategory;
@@ -129,6 +132,8 @@ NSString *const RecentUsedEmojiCharactersKey = @"RecentUsedEmojiCharactersKey";
     self.pageControl.hidesForSinglePage = YES;
     self.pageControl.currentPage = 0;
     self.pageControl.backgroundColor = [UIColor clearColor];
+    self.pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    self.pageControl.currentPageIndicatorTintColor = [UIColor darkGrayColor];
     CGSize pageControlSize = [self.pageControl sizeForNumberOfPages:3];
     NSUInteger numberOfPages = [self numberOfPagesForCategory:self.category
                                                   inFrameSize:CGSizeMake(CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) - CGRectGetHeight(self.segmentsBar.bounds) - pageControlSize.height)];

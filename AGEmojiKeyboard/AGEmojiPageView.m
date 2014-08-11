@@ -38,6 +38,7 @@
     self.buttons = [NSMutableArray arrayWithCapacity:self.rows * self.columns];
     for (NSUInteger i = 0; i < [buttonTexts count]; ++i) {
       UIButton *button = [self createButtonAtIndex:i];
+      [button.titleLabel setTextColor:[UIColor colorWithWhite:0.05 alpha:1.0] ];
       [button setTitle:buttonTexts[i] forState:UIControlStateNormal];
       [self addToViewButton:button];
     }
